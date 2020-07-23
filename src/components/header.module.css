@@ -1,0 +1,15 @@
+.header {
+  -webkit-box-flex: 1;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #dadada;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 1 0 100vw;
+  height: 60px;
+  height: var(--header__height);
+  padding: 0 62px;
+  position: relative;
+  width: 100vw;
+}

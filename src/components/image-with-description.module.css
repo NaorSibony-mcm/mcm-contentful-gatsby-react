@@ -1,0 +1,29 @@
+.box {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.box > * {
+  flex: 1;
+}
+
+.imageOnRight {
+  flex-direction: row-reverse;
+}
+
+.imageOnBottom {
+  flex-direction: column-reverse;
+}
+
+.imageOnTop {
+  flex-direction: column;
+}
+
+.description {
+  padding: 0.3em;
+}
+
+.image {
+  height: 100%;
+}

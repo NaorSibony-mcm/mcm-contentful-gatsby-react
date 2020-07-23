@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+}
+
+.container > div {
+  flex: 1;
+  padding: 20px;
+}
+
+.container > div:first-child {
+  padding-left: 0;
+}
+
+.container > div:last-child {
+  padding-right: 0;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 500;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
+}
