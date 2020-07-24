@@ -5,7 +5,6 @@ import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 import styles from "./landing-page.module.css";
 import SwitchingImage from "../components/switching-image";
-import BoxTrio from "../components/box-trio";
 import Section from "../components/section";
 
 class LandingPageTemplate extends React.Component {
@@ -46,17 +45,6 @@ class LandingPageTemplate extends React.Component {
                     </div>
                   );
                 }
-                case "ContentfulBoxTrio": {
-                  return (
-                    <div key={index}>
-                      <BoxTrio
-                        props={value}
-                        parentChosenDesignVersion={pageData.designVersion}
-                      ></BoxTrio>
-                    </div>
-                  );
-                }
-
                 case "ContentfulSection": {
                   return (
                     <div key={index}>
@@ -107,27 +95,6 @@ export const pageQuery = graphql`
           }
           switchResolution
           imageAlt
-        }
-
-        ... on ContentfulBoxTrio {
-          __typename
-          title
-          subtitle
-          shouldHideOnMobile
-          boxes {
-            id
-            rte {
-              id
-              json
-            }
-
-            image {
-              fluid {
-                ...GatsbyContentfulFluid_tracedSVG
-              }
-            }
-            imageAlt
-          }
         }
         ... on ContentfulSection {
           __typename

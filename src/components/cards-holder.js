@@ -1,18 +1,37 @@
 import React from "react";
 import AccordionComposer from "./RTE Cards/Accordion/accordion-composer";
+import ImageBoxesComposer from "./RTE Cards/Image boxes/image-boxes-composer";
 
-export default ({ props }) => {
+export default ({ props, parentDesignVersion }) => {
   const currentLanguage = "en-US"; // todo - handle globally
   const cards = props.cards[currentLanguage].map(c => {
     Object.keys(c.fields).forEach(propKey => {
-      c.fields[propKey] = c.fields[propKey][currentLanguage];
+      if (propKey !== "image") {
+        c.fields[propKey] = c.fields[propKey][currentLanguage];
+      } else {
+        c.fields[propKey] =
+          c.fields[propKey][currentLanguage].fields.file[currentLanguage].url;
+      }
     });
     return c.fields;
   });
 
   switch (props.templateType[currentLanguage]) {
     case "Accordion": {
-      return <AccordionComposer props={cards}></AccordionComposer>;
+      return (
+        <AccordionComposer
+          props={cards}
+          parentDesignVersion={parentDesignVersion}
+        ></AccordionComposer>
+      );
+    }
+    case "Image boxes": {
+      return (
+        <ImageBoxesComposer
+          props={cards}
+          parentDesignVersion={parentDesignVersion}
+        ></ImageBoxesComposer>
+      );
     }
     default: {
       return null;

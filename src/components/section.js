@@ -1,7 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
-
-import styles from "./image-with-description.module.css";
+import styles from "./section.module.css";
 import RteComposer from "./rte-composer";
 
 export default ({ props, parentDesignVersion }) => {
@@ -26,7 +25,11 @@ export default ({ props, parentDesignVersion }) => {
           <div>
             <RteComposer
               rte={props.content}
-              parentChosenDesignVersion={parentDesignVersion}
+              parentDesignVersion={
+                props.forceRteVersion
+                  ? props.forceRteVersion
+                  : parentDesignVersion
+              }
             ></RteComposer>
           </div>
         ) : null}

@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styles from "./rte-composer.module.css";
 import CardsHolder from "./cards-holder";
 
-export default ({ rte, chosenDesignVersion, contentType }) => {
+export default ({ rte, parentDesignVersion }) => {
   let ind = 0;
   const items = documentToReactComponents(rte.json, {
     renderNode: {
@@ -15,7 +15,7 @@ export default ({ rte, chosenDesignVersion, contentType }) => {
             return (
               <CardsHolder
                 props={node.data.target.fields}
-                parentChosenDesignVersion={chosenDesignVersion}
+                parentDesignVersion={parentDesignVersion}
               ></CardsHolder>
             );
 
@@ -24,13 +24,7 @@ export default ({ rte, chosenDesignVersion, contentType }) => {
         }
       },
       [BLOCKS.HEADING_1]: (node, next) => {
-        return next[0] ? (
-          <h1 className={styles.heading1}>
-            <i className="checkmark"></i>
-
-            {next[0]}
-          </h1>
-        ) : null;
+        return next[0] ? <h1 className={styles.heading1}>{next[0]}</h1> : null;
       },
       [BLOCKS.HEADING_2]: (node, next) => {
         return next[0] ? (

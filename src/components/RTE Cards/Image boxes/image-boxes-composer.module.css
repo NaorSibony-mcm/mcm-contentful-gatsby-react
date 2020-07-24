@@ -1,0 +1,41 @@
+.box {
+  height: 100%;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.container.version2 .box {
+  flex-direction: column;
+}
+
+.box > * {
+  flex: 1;
+}
+
+.contentContainer {
+  padding: 0.3em;
+
+  background: #f6f6f6;
+}
+.title {
+  text-indent: 25px;
+}
+.description {
+  text-align: center;
+}
+
+.image {
+  height: 100%;
+}
+.imageContainer {
+  padding: 20px;
+}
+
+.version1 {
+}

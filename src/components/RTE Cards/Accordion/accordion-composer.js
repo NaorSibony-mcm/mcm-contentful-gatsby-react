@@ -8,15 +8,14 @@ import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default ({ props, parentForcedDesignVersion }) => {
+export default ({ props, parentDesignVersion }) => {
   const highestImplementedDesignVersion = 2;
   const chosenDesignVersion = getChosenVersion(
-    parentForcedDesignVersion,
+    parentDesignVersion,
     highestImplementedDesignVersion,
     "AccordionComposer"
   );
   debugger;
-
   const useStyles = makeStyles(theme => {
     const base = {
       root: {
