@@ -1,26 +1,25 @@
-.version1>div {
-    padding: 50px 0;
+.version1 > div {
+  padding: 50px 0;
 }
 
-.version1>div:first-child {
-    padding-top: 0;
+.version1 > div:first-child {
+  padding-top: 0;
 }
 
-.version1>div:not(:first-child) {
-    max-width: 1400px;
-    margin: 0 auto;
+.version1 > div:not(:first-child) {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-
-.version2>div {
-    padding: 20px 0;
+.version2 > div {
+  padding: 20px 0;
 }
 
-.version2>div:first-child {
-    padding-top: 0;
+.version2 > div:first-child {
+  padding-top: 0;
 }
 
-.version2>div:not(:first-child) {
-    max-width: 1120px;
-    margin: 0 auto;
+.version2 > div:not(:first-child) {
+  max-width: 1120px;
+  margin: 0 auto;
 }

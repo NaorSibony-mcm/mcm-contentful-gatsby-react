@@ -27,7 +27,6 @@ export default ({ props }) => {
           <RteComposer
             rte={props.rte}
             parentChosenDesignVersion="1"
-            headersIconClassName={props.rteHeadersIconClassName}
           ></RteComposer>
         </div>
       ) : (

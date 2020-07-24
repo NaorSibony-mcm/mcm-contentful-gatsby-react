@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 import styles from "./landing-page.module.css";
 import SwitchingImage from "../components/switching-image";
 import BoxTrio from "../components/box-trio";
-import ImagePost from "../components/image-post";
+import Section from "../components/section";
 
 class LandingPageTemplate extends React.Component {
   render() {
@@ -36,19 +36,6 @@ class LandingPageTemplate extends React.Component {
           <div className={className}>
             {pageData.pageComponents.map((value, index) => {
               switch (value.__typename) {
-                case "ContentfulArticle": {
-                  return (
-                    <div
-                      style={{
-                        height: "100px",
-                        borderBottom: "1px solid black",
-                      }}
-                      key={index}
-                    >
-                      Component type is: <b>{value.__typename}</b>
-                    </div>
-                  );
-                }
                 case "ContentfulSwitchingImage": {
                   return (
                     <div key={index}>
@@ -69,13 +56,14 @@ class LandingPageTemplate extends React.Component {
                     </div>
                   );
                 }
-                case "ContentfulImagePost": {
+
+                case "ContentfulSection": {
                   return (
                     <div key={index}>
-                      <ImagePost
+                      <Section
                         props={value}
-                        parentChosenDesignVersion={pageData.designVersion}
-                      ></ImagePost>
+                        parentDesignVersion={pageData.designVersion}
+                      ></Section>
                     </div>
                   );
                 }
@@ -141,23 +129,20 @@ export const pageQuery = graphql`
             imageAlt
           }
         }
-
-        ... on ContentfulImagePost {
+        ... on ContentfulSection {
           __typename
           title
           isImageOnRight
-          imageWithDescription {
-            id
-            image {
-              fluid {
-                ...GatsbyContentfulFluid_tracedSVG
-              }
+          shouldHideOnMobile
+          id
+          image {
+            fluid {
+              ...GatsbyContentfulFluid_tracedSVG
             }
-            imageAlt
-            rte {
-              id
-              json
-            }
+          }
+          forceRteVersion
+          content {
+            json
           }
         }
       }

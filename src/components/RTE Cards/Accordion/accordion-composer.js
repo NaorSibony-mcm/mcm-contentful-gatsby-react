@@ -1,5 +1,5 @@
 import React from "react";
-import { getChosenVersion } from "../utils/helper-functions";
+import { getChosenVersion } from "../../../utils/helper-functions";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -8,13 +8,14 @@ import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default ({ props, parentChosenDesignVersion }) => {
-  const highestImplementedDesignVersion = "1";
+export default ({ props, parentForcedDesignVersion }) => {
+  const highestImplementedDesignVersion = 2;
   const chosenDesignVersion = getChosenVersion(
-    parentChosenDesignVersion,
-    props.designVersion,
-    highestImplementedDesignVersion
+    parentForcedDesignVersion,
+    highestImplementedDesignVersion,
+    "AccordionComposer"
   );
+  debugger;
 
   const useStyles = makeStyles(theme => {
     const base = {
@@ -57,12 +58,10 @@ export default ({ props, parentChosenDesignVersion }) => {
     }
     return base;
   });
-
   const handleChange = panel => (event, isExpanded) => {
     if (expanded === panel) return;
     setExpanded(isExpanded ? panel : false);
   };
-
   const [expanded, setExpanded] = React.useState(false);
   const classes = useStyles();
   return (
@@ -70,6 +69,7 @@ export default ({ props, parentChosenDesignVersion }) => {
       {props.map((value, index) => {
         return (
           <Accordion
+            key={index}
             expanded={expanded === `panel${index}`}
             onChange={handleChange(`panel${index}`)}
             className={classes.item}
@@ -85,9 +85,7 @@ export default ({ props, parentChosenDesignVersion }) => {
               aria-controls={`panel${index}-content`}
               id={`panel${index}-header`}
             >
-              <Typography className={classes.heading}>
-                {value.header}
-              </Typography>
+              <Typography className={classes.heading}>{value.title}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>{value.description}</Typography>

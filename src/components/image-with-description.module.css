@@ -27,3 +27,6 @@
 .image {
   height: 100%;
 }
+.imageContainer {
+  padding: 20px;
+}
