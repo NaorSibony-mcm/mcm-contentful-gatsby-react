@@ -9,7 +9,6 @@ export default ({ props, parentDesignVersion }) => {
     highestImplementedDesignVersion,
     "ImageBoxesComposer"
   );
-  debugger;
   let additionalContainerClass = "";
   switch (chosenDesignVersion) {
     case 1: {

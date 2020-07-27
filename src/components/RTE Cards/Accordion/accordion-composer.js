@@ -15,7 +15,6 @@ export default ({ props, parentDesignVersion }) => {
     highestImplementedDesignVersion,
     "AccordionComposer"
   );
-  debugger;
   const useStyles = makeStyles(theme => {
     const base = {
       root: {

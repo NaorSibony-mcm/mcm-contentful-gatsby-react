@@ -99,7 +99,7 @@ export const pageQuery = graphql`
         ... on ContentfulSection {
           __typename
           title
-          isImageOnRight
+          imageDisplayType
           shouldHideOnMobile
           id
           image {

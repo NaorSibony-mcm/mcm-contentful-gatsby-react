@@ -79,3 +79,51 @@ a {
   position: relative;
   top: 5px;
 }
+
+.boxPaddingBottom .Small {
+  padding-bottom: 10px;
+}
+
+.boxPaddingBottom .Medium {
+  padding-bottom: 20px;
+}
+
+.boxPaddingBottom .Large {
+  padding-bottom: 40px;
+}
+
+.lineBottomPadding .Small {
+  padding-bottom: 5px;
+}
+
+.lineBottomPadding .Medium {
+  padding-bottom: 10px;
+}
+
+.lineBottomPadding .Large {
+  padding-bottom: 20px;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}

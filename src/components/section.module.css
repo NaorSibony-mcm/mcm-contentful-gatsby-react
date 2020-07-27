@@ -11,6 +11,12 @@
 .imageOnRight {
   flex-direction: row-reverse;
 }
+.heroImage {
+}
+
+.imageOnTop {
+  flex-direction: column;
+}
 
 .imageOnBottom {
   flex-direction: column-reverse;
@@ -27,6 +33,7 @@
 .image {
   height: 100%;
 }
+
 .imageContainer {
   padding: 20px;
 }
