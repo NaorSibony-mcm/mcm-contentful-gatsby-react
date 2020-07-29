@@ -4,7 +4,6 @@ import get from "lodash/get";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 import styles from "./landing-page.module.css";
-import SwitchingImage from "../components/switching-image";
 import Section from "../components/section";
 
 class LandingPageTemplate extends React.Component {
@@ -35,16 +34,6 @@ class LandingPageTemplate extends React.Component {
           <div className={className}>
             {pageData.pageComponents.map((value, index) => {
               switch (value.__typename) {
-                case "ContentfulSwitchingImage": {
-                  return (
-                    <div key={index}>
-                      <SwitchingImage
-                        props={value}
-                        parentChosenDesignVersion={pageData.designVersion}
-                      ></SwitchingImage>
-                    </div>
-                  );
-                }
                 case "ContentfulSection": {
                   return (
                     <div key={index}>
@@ -81,21 +70,6 @@ export const pageQuery = graphql`
       slug
       designVersion
       pageComponents {
-        ... on ContentfulSwitchingImage {
-          __typename
-          largerResImage {
-            fluid(resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          smallerResImage {
-            fluid(resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          switchResolution
-          imageAlt
-        }
         ... on ContentfulSection {
           __typename
           title

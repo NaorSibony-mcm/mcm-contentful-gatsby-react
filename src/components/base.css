@@ -127,3 +127,17 @@ a {
 .italic {
   font-style: italic;
 }
+
+
+
+
+h2 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.3;
+}

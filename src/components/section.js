@@ -30,9 +30,20 @@ export default ({ props, parentDesignVersion }) => {
     }
   }
   return (
-    <div className={props.shouldHideOnMobile ? "desktop" : ""}>
+    <div
+      style={
+        props.image && props.imageDisplayType === "Hero"
+          ? {
+              backgroundImage: `url("${props.image.fluid.src}")`,
+              backgroundSize: "cover",
+              padding: "40px",
+            }
+          : { margin: "0 auto", maxWidth: "1120px" }
+      }
+      className={props.shouldHideOnMobile ? "desktop" : ""}
+    >
       <div className={styles.box + ` ${imageDisplayClass}`}>
-        {props.image ? (
+        {props.image && props.imageDisplayType !== "Hero" ? (
           <div className={styles.imageContainer}>
             <Img
               className={styles.image}
